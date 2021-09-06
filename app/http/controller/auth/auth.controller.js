@@ -29,9 +29,8 @@ exports.login = (req, res) => {
 		return res
 			.status(202)
 			.cookie("token", token, {
-				// sameSite: "strict",
-				// sameSite: "none",
-				// path: "/",
+				sameSite: "none",
+				path: "/",
 				// expires: new Date(new Date().getTime() + 100 * 1000),
 				// httpOnly: true,
 			})
