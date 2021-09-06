@@ -31,6 +31,7 @@ exports.login = (req, res) => {
 			.cookie("token", token, {
 				sameSite: "none",
 				path: "/",
+				secure: true,
 				// expires: new Date(new Date().getTime() + 100 * 1000),
 				// httpOnly: true,
 			})
