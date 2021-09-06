@@ -36,7 +36,7 @@ commentSchema.findById = function (cb) {
 const Comment = mongoose.model("Comment", commentSchema);
 
 exports.findById = (id) => {
-	return Video.findById(id).then((result) => {
+	return Video.findById (id).then((result) => {
 		result = result.toJSON();
 		delete result._id;
 		delete result.__v;

@@ -47,7 +47,6 @@ app.use([
 	express.static("public"),
 ]);
 
-// Don't change the order
 
 app.options("/", (req, res) => {
 	res.status(200).send();
