@@ -28,7 +28,9 @@ app.use(
 		highWaterMark: 2 * 1024 * 1024,
 	})
 );
-
+app.get("/", (req, res)=>{
+	res.send("Hello Peter")
+})
 require("./routes/routes.api.user").routesConfig(app);
 require("./routes/routes.api.auth").routesConfig(app);
 require("./routes/routes.api.video").routesConfig(app);
