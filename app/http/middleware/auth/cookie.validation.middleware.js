@@ -3,7 +3,6 @@ const JWT_SECRET = process.env.JWT_SECRET;
 const jwt = require("jsonwebtoken");
 
 exports.validCookieNeeded = (req, res, next) => {
-	console.log("Cookie validate", req.cookies);
 	if (req.cookies && req.cookies.token) {
 		try {
 			req.jwt = jwt.verify(req.cookies.token, JWT_SECRET);
@@ -11,7 +10,7 @@ exports.validCookieNeeded = (req, res, next) => {
 			// 	else return next();
 			return next();
 		} catch (err) {
-			return res.status(401).send();
+			return res.status(401).send({err:"somebody ate the cookie"});
 		}
 	} else {
 		return res.status(401).send();
