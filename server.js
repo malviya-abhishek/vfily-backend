@@ -16,13 +16,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(
-	cors()
+	cors({
+		origin: "https://vfily.herokuapp.com",
+		credentials: true,
+	})
 );
-
-// {
-// 	origin: "https://vfily.herokuapp.com",
-// 	credentials: true,
-// }
 
 // File upload middleware
 app.use(
@@ -61,8 +59,8 @@ httpServer.listen(process.env.PORT, () => {
 // socket connection
 const io = require("socket.io")(httpServer, {
 	cors: {
-		// origin: "https://vfily.herokuapp.com",
-		// credentials: true,
+		origin: "https://vfily.herokuapp.com",
+		credentials: true,
 	},
 });
 
