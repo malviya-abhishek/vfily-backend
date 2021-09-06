@@ -59,6 +59,8 @@ exports.upload = (req, res) => {
 };
 
 exports.videos = (req, res) => {
+	console.log("Videos", req.jwt);
+
 	let limit =
 		req.query.limit && req.query.limit <= 100
 			? parseInt(req.query.limit)
