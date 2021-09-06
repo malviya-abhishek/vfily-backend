@@ -25,6 +25,8 @@ exports.login = (req, res) => {
 
 		let refresh_token = b.toString("base64");
 
+		console.log("Hello login", req.body);
+
 		return res
 			.status(202)
 			.cookie("token", token, {
