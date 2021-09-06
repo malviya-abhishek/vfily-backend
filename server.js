@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(
 	cors({
-		origin: "http://localhost:3000",
+		origin: "https://vfily.herokuapp.com",
 		credentials: true,
 	})
 );
@@ -59,7 +59,7 @@ httpServer.listen(process.env.PORT, () => {
 // socket connection
 const io = require("socket.io")(httpServer, {
 	cors: {
-		origin: "http://localhost:3000",
+		origin: "https://vfily.herokuapp.com",
 		credentials: true,
 	},
 });
