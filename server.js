@@ -57,19 +57,19 @@ httpServer.listen(process.env.PORT, () => {
 });
 
 // socket connection
-const io = require("socket.io")(httpServer, {
-	cors: {
-		origin: process.env.CROSS_ORIGIN,
-		credentials: true,
-	},
-});
+// const io = require("socket.io")(httpServer, {
+// 	cors: {
+// 		origin: process.env.CROSS_ORIGIN,
+// 		credentials: true,
+// 	},
+// });
 
-io.on("connection", (socket) => {
-	socket.on("join", (videoId) => {
-		socket.join(videoId);
-	});
-});
+// io.on("connection", (socket) => {
+// 	socket.on("join", (videoId) => {
+// 		socket.join(videoId);
+// 	});
+// });
 
-eventEmitter.on("commentCreated", (data) => {
-	io.to(`video_${data.videoId}`).emit("commentCreated", data);
-});
+// eventEmitter.on("commentCreated", (data) => {
+// 	io.to(`video_${data.videoId}`).emit("commentCreated", data);
+// });
