@@ -41,6 +41,7 @@ require("./routes/routes.api.comment").routesConfig(app);
 // app.use(cookieParser());
 
 const CookieValidationMiddleware = require("./app/http/middleware/auth/cookie.validation.middleware");
+
 app.use([
 	cookieParser(),
 	CookieValidationMiddleware.validCookieNeeded,
