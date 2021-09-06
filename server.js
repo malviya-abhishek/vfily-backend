@@ -9,9 +9,6 @@ const Emitter = require("events");
 const eventEmitter = new Emitter();
 app.set("eventEmitter", eventEmitter);
 
-const cookieParser = require("cookie-parser");
-app.use(cookieParser());
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -22,15 +19,18 @@ app.use(
 	})
 );
 
+const cookieParser = require("cookie-parser");
+app.use(cookieParser());
+
 // File upload middleware
 app.use(
 	busboy({
 		highWaterMark: 2 * 1024 * 1024,
 	})
 );
-app.get("/", (req, res)=>{
-	res.send("Hello Peter")
-})
+app.get("/", (req, res) => {
+	res.send("Hello Peter");
+});
 require("./routes/routes.api.user").routesConfig(app);
 require("./routes/routes.api.auth").routesConfig(app);
 require("./routes/routes.api.video").routesConfig(app);
@@ -46,7 +46,6 @@ app.use([
 	CookieValidationMiddleware.validCookieNeeded,
 	express.static("public"),
 ]);
-
 
 app.options("/", (req, res) => {
 	res.status(200).send();
@@ -73,5 +72,3 @@ io.on("connection", (socket) => {
 eventEmitter.on("commentCreated", (data) => {
 	io.to(`video_${data.videoId}`).emit("commentCreated", data);
 });
-
-
