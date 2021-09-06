@@ -6,6 +6,7 @@ const JWT_SECRET = process.env.JWT_SECRET;
 const jwt = require("jsonwebtoken");
 
 exports.upload = (req, res) => {
+	console.log("Hello Video Peter");
 	const newVideo = {};
 
 	req.pipe(req.busboy);
